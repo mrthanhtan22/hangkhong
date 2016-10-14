@@ -1,0 +1,383 @@
+<div class="grid_5">
+	<strong><h3 style="color:#31708f">Tìm vé online</h3></strong>
+	
+
+<div class="row">
+	
+	
+		<div class="panel panel-info">
+			
+			<div class="panel-body">
+				
+				<div role="tabpanel">
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active">
+							<a href="#venoidia" aria-controls="venoidia" role="tab" data-toggle="tab" id="venoidia_link">Nội địa</a>
+						</li>
+						<li role="presentation">
+							<a href="#vequocte" aria-controls="tab" role="tab" data-toggle="tab" id="vequocte_link">Quốc tế</a>
+						</li>
+					</ul>
+				
+					<!-- Tab panes -->
+					<div class="tab-content">
+					<!--ve noi dia-->
+						<div role="tabpanel" class="tab-pane active" id="venoidia">
+						<div class="panel-body">
+					<form action="<?php echo site_url() ?>/flight" method="get" class="form-horizontal" role="form" id="form_venoidia">
+					<!--radio -->		
+						
+							<div class="radio">
+								<label>
+									<input type="radio" name="Itinerary" id="inputKhuHoi_noidia" value="Roundtrip" checked="checked">
+									Khu hoi
+								</label>
+								<label>
+									<input type="radio" name="Itinerary" id="inputMotChieu_noidia" value="Oneway" >
+									Mot chieu
+								</label>
+							</div><br>
+						
+						<!--end radio -->
+
+						<!--Noidi, Noi den-->
+						<div class="form-group">
+							<div class="row">	
+							<div class="col-sm-12">
+							
+								<div class="col-sm-3"><label> Điểm đi </label> <span class="fa fa-paper-plane-o"></span> </div>
+								<div class="col-sm-9"><input type="text" name="Departure" id="inputNoiDi_noidia" class="form-control" placeholder="Lựa chọn nơi đi" data-toggle="modal" data-target="#modal_noidi" autocomplete="off"></div>
+							</div>	
+							</div><br>
+
+								
+							<div class="col-sm-12">
+								<div class="row">
+								<div class="col-sm-3"><label> Điểm đến</label> <span class="fa fa-paper-plane-o"></span> </div>
+								<div class="col-sm-9"><input type="text" name="Destination" id="inputNoiDen_noidia" class="form-control" placeholder="Lựa chọn nơi đi" autocomplete="off" data-toggle="modal" data-target="#modal_noiden"></div>
+							</div>	
+							</div><br>
+						</div>
+						<!--end Noidi, Noi den-->
+
+						<!--ngay di, ngay ve-->
+						<div class="form-group has-feedback">
+							<div class="col-sm-6">
+								<label>Ngày đi</label>
+								<input type="text" name="DepartureDate" id="inputNgayDi_noidia" class="form-control" placeholder="Nhập ngày đi" autocomplete="off"/>
+								<i class="glyphicon glyphicon-calendar form-control-feedback"></i>
+							</div>
+
+							<div class="col-sm-6">
+								<label id="ngayve_noidia">Ngày về</label>
+								<input type="text" name="ReturnDate" id="inputNgayVe_noidia" class="form-control" placeholder="Nhập ngày đến" autocomplete="off">
+								<i class="glyphicon glyphicon-calendar form-control-feedback" id="icon_noidia"></i>
+							</div>
+						</div>
+						<!--end ngay di ngay ve -->
+
+						<!--So luong-->
+						<div class="form-group">
+							
+								<div class="col-sm-4">
+									<label style="color:#31708f">Người lớn</label>
+									<select name="Adult" id="inputNguoiLon" class="form-control">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+									</select>
+								</div>
+								<div class="col-sm-4">
+									<label style="color:#31708f">Trẻ em</label>
+									<select name="Child" id="inputTreEm" class="form-control">
+										<option value="0">0</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+									</select>
+								</div>
+								<div class="col-sm-4">
+									<label style="color:#31708f">Sơ sinh(< 2t)</label>
+									<select name="Infant" id="inputTreSoSinh" class="form-control">
+										<option value="0">0</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+									</select>
+								</div>
+						</div>	
+						<input type="hidden" name="Route" value="Domestic">
+						<!-- end So luong-->
+
+						
+							<div class="col-sm-12">
+								<button type="submit" class="btn btn-primary btn-block" onclick="check_submit()">✈ ✈ ✈ Tìm kiếm chuyến bay ✈ ✈ ✈ </button>
+							</div>
+						
+					</form>
+				</div>
+						</div>
+					<!--end ve noi dia-->
+					
+					<!--ve quoc te-->	
+						<div role="tabpanel" class="tab-pane" id="vequocte">
+						<div class="panel-body">
+					<form action="<?php echo site_url() ?>/flight" method="get" class="form-horizontal" role="form" id="form_vequocte">
+					<!--radio -->		
+						
+							<div class="radio">
+								<label>
+									<input type="radio" name="Itinerary" id="inputKhuHoi" value="Roundtrip" checked="checked">
+									Khu hoi
+								</label>
+								<label>
+									<input type="radio" name="Itinerary" id="inputMotChieu" value="Oneway" >
+									Mot chieu
+								</label>
+							</div><br>
+						
+						<!--end radio -->
+
+						<!--Noidi, Noi den-->
+						<div class="form-group">
+							<div class="row">	
+							<div class="col-sm-12">
+							
+								<div class="col-sm-3"><label>Điểm đi: </label><span class="fa fa-paper-plane-o"></span> </div>
+								<div class="col-sm-9"><input type="text" name="Departure" id="inputNoiDi" class="form-control" placeholder="Nhập mã sân bay hoặc thành phố"></div>
+							</div>	
+							</div><br>
+
+								
+							<div class="col-sm-12">
+								<div class="row">
+								<div class="col-sm-3"><label>Điểm đến: </label><span class="fa fa-paper-plane-o"></span> </div>
+								<div class="col-sm-9"><input type="text" name="Destination" id="inputNoiDen" class="form-control" placeholder="Nhập mã sân bay hoặc thành phố"></div>
+							</div>	
+							</div><br>
+						</div>
+						<!--end Noidi, Noi den-->
+
+						<!--ngay di, ngay ve-->
+						<div class="form-group has-feedback">
+							<div class="col-sm-6">
+								<label>Ngày đi</label>
+								<input type="text" name="DepartureDate" id="inputNgayDi" class="form-control" placeholder="Nhập ngày đi" autocomplete="off"/>
+								<i class="glyphicon glyphicon-calendar form-control-feedback"></i>
+							</div>
+
+							<div class="col-sm-6">
+								<label id="ngayve">Ngày về</label>
+								<input type="text" name="ReturnDate" id="inputNgayVe" class="form-control" placeholder="Nhập ngày đến" autocomplete="off">
+								<i class="glyphicon glyphicon-calendar form-control-feedback" id="icon_quocte"></i>
+							</div>
+						</div>
+						<!--end ngay di ngay ve -->
+
+						<!--So luong-->
+						<div class="form-group">
+							
+								<div class="col-sm-4">
+									<label style="color:#31708f">Người lớn</label>
+									<select name="Adult" id="inputNguoiLon" class="form-control">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+									</select>
+								</div>
+								<div class="col-sm-4">
+									<label style="color:#31708f">Trẻ em</label>
+									<select name="Child" id="inputTreEm" class="form-control">
+										<option value="0">0</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+									</select>
+								</div>
+								<div class="col-sm-4">
+									<label style="color:#31708f">Sơ sinh(< 2t)</label>
+									<select name="Infant" id="inputTreSoSinh" class="form-control">
+										<option value="0">0</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+									</select>
+								</div>
+						</div>	
+						<input type="hidden" name="Route" value="International">
+						<!-- end So luong-->
+
+						
+							<div class="col-sm-12">
+								<button type="submit" class="btn btn-primary btn-block" onclick="check_submit()">✈ ✈ ✈ Tìm kiếm chuyến bay ✈ ✈ ✈ </button>
+							</div>
+						
+					</form>
+				</div>
+						</div>
+					<!--end ve quoc te -->
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		
+</div>
+
+<!--modal ve noi dia-->
+
+<div class="modal fade" id="modal_noidi">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" style="color:#f4511e"><span class="glyphicon glyphicon-map-marker"> Lựa chọn thành phố nơi đi</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-sm-6">
+						 <ul class="item-di" style="list-style-type:none;">
+		                    <li class="title-footer" style="color:#f4511e"><span class="fa fa-map"></span> MIỀN BẮC</li>
+		                    <li><a id="choose-noidi" href="javascript:;"><b>Hà Nội</b> (HAN)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Hải Phòng</b> (HPH)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Điện Biên</b> (DIN)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Thanh Hóa</b> (THD)</a></li>
+		                </ul>
+		                <ul class="item" style="list-style-type:none;">
+		                    <li class="title-footer" style="color:#f4511e"><span class="fa fa-map"></span> MIỀN TRUNG</li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Vinh</b> (VII)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Huế</b> (HUI)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Đồng Hới</b> (VDH)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Đà Nẵng</b> (DAD)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Pleiku</b> (PXU)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Tuy Hòa</b> (TBB)</a></li>
+		                </ul>
+					</div>
+					<div class="col-sm-6">
+						 <ul class="item" style="list-style-type:none;margin-bottom: 20px">
+		                    <li class="title-footer" style="color:#f4511e"><span class="fa fa-map"></span> MIỀN NAM</li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Hồ Chí Minh</b> (SGN)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Nha Trang</b> (CXR)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Đà Lạt</b> (DLI)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Phú Quốc</b> (PQC)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Tam Kỳ</b> (VCL)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Qui Nhơn</b> (UIH)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Cần Thơ</b> (VCA)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Côn Đảo</b> (VCS)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Ban Mê Thuột</b> (BMV)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Rạch Giá</b> (VKG)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Cà Mau</b> (CAH)</a></li>
+		                </ul>
+					</div>
+							</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary btn-block" data-dismiss="modal">Xong</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<!--end modal ve noi dia-->
+
+<!--modal noi den-->
+<div class="modal fade" id="modal_noiden">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" style="color:#f4511e"><span class="glyphicon glyphicon-map-marker"> Lựa chọn thành phố nơi đến</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-sm-6">
+						 <ul class="item-di" style="list-style-type:none;">
+		                    <li class="title-footer" style="color:#f4511e"><span class="fa fa-map"></span> MIỀN BẮC</li>
+		                    <li><a id="choose-noidi" href="javascript:;"><b>Hà Nội</b> (HAN)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Hải Phòng</b> (HPH)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Điện Biên</b> (DIN)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Thanh Hóa</b> (THD)</a></li>
+		                </ul>
+		                <ul class="item" style="list-style-type:none;">
+		                    <li class="title-footer" style="color:#f4511e"><span class="fa fa-map"></span> MIỀN TRUNG</li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Vinh</b> (VII)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Huế</b> (HUI)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Đồng Hới</b> (VDH)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Đà Nẵng</b> (DAD)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Pleiku</b> (PXU)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Tuy Hòa</b> (TBB)</a></li>
+		                </ul>
+					</div>
+					<div class="col-sm-6">
+						 <ul class="item" style="list-style-type:none;margin-bottom: 20px">
+		                    <li class="title-footer" style="color:#f4511e"><span class="fa fa-map"></span> MIỀN NAM</li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Hồ Chí Minh</b> (SGN)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Nha Trang</b> (CXR)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Đà Lạt</b> (DLI)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Phú Quốc</b> (PQC)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Tam Kỳ</b> (VCL)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Qui Nhơn</b> (UIH)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Cần Thơ</b> (VCA)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Côn Đảo</b> (VCS)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Ban Mê Thuột</b> (BMV)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Rạch Giá</b> (VKG)</a></li>
+		                    <li><a href="javascript:;" rel="nofollow"><b>Cà Mau</b> (CAH)</a></li>
+		                </ul>
+					</div>
+							</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary btn-block" data-dismiss="modal">Xong</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!--end modal noi den-->
+
+
+
+		<script src="<?php echo public_url('search') ?>/bootstrap-datepicker.js"></script>
+
+		<script src="<?php echo public_url('search') ?>/function_form.js"></script>
+		
+		
+		
+
+</div>
